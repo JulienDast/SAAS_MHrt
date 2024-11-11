@@ -18,7 +18,7 @@ const EditIngredientModal: React.FC<EditIngredientModalProps> = ({ isOpen, onClo
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await axios.patch(`http://localhost:5000/ingredient/${ingredient.id}`, {
+      await axios.patch(`${process.env.REACT_APP_API_URL}ingredient/${ingredient.id}`, {
         name,
         price,
         unity,

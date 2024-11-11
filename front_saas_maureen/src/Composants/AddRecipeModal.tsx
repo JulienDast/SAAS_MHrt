@@ -14,7 +14,7 @@ const AddRecipeModal: React.FC<AddRecipeModalProps> = ({ isOpen, onClose, onReci
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/recette', {
+      await axios.post(`${process.env.REACT_APP_API_URL}recette`, {
         name,
         gateauImgUrl,
       });

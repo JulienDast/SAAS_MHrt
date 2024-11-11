@@ -12,7 +12,7 @@ const Recettes: React.FC = () => {
   useEffect(() => {
     const fetchRecettes = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/recette');
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}recette`);
         const sortedRecettes = response.data.sort((a: any, b: any) => 
           a.name.localeCompare(b.name)
         );
@@ -29,7 +29,7 @@ const Recettes: React.FC = () => {
 
   const handleRecipeAdded = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/recette');
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}recette`);
       const sortedRecettes = response.data.sort((a: any, b: any) => 
         a.name.localeCompare(b.name)
       );

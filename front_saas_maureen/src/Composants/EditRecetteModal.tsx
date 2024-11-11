@@ -15,7 +15,7 @@ const EditRecipeModal: React.FC<EditRecipeModalProps> = ({ isOpen, onClose, reci
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await axios.patch(`http://localhost:5000/recette/${recipe.id}`, {
+      await axios.patch(`${process.env.REACT_APP_API_URL}recette/${recipe.id}`, {
         name,
         gateauImgUrl,
       });

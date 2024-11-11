@@ -13,7 +13,7 @@ const IngredientDetail: React.FC = () => {
   useEffect(() => {
     const fetchIngredientDetail = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/ingredient/${id}`);
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}ingredient/${id}`);
         setIngredient(response.data);
       } catch (err) {
         setError('Erreur lors de la récupération des détails de l\'ingrédient.');
@@ -30,7 +30,7 @@ const IngredientDetail: React.FC = () => {
     
     if (isConfirmed) {
       try {
-        await axios.delete(`http://localhost:5000/ingredient/${id}`);
+        await axios.delete(`${process.env.REACT_APP_API_URL}ingredient/${id}`);
         alert('Ingrédient supprimé avec succès !');
         window.location.href = '/ingredients'; 
       } catch (err) {

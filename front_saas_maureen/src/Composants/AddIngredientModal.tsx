@@ -17,7 +17,7 @@ const AddIngredientModal: React.FC<AddIngredientModalProps> = ({ isOpen, onClose
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/ingredient', {
+      await axios.post(`${process.env.REACT_APP_API_URL}ingredient`, {
         name,
         price,
         unity,

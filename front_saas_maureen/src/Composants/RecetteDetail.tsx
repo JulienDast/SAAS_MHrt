@@ -21,7 +21,7 @@ const RecetteDetail: React.FC = () => {
   useEffect(() => {
     const fetchRecetteDetail = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/recette/${id}`);
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}recette/${id}`);
         setRecette(response.data);
       } catch (err) {
         setError('Erreur lors de la récupération des détails de la recette.');
@@ -32,7 +32,7 @@ const RecetteDetail: React.FC = () => {
 
     const fetchProducts = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/ingredient'); 
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}ingredient`); 
         setProducts(response.data);
       } catch (err) {
         console.error('Erreur lors de la récupération des ingrédients.', err);
@@ -47,7 +47,7 @@ const RecetteDetail: React.FC = () => {
     e.preventDefault(); 
     if (selectedProductId && quantity > 0) {
       try {
-        await axios.post(`http://localhost:5000/recette_ingredient/${id}`, {
+        await axios.post(`${process.env.REACT_APP_API_URL}recette_ingredient/${id}`, {
           productId: selectedProductId,
           quantity,
         });
@@ -80,7 +80,7 @@ const RecetteDetail: React.FC = () => {
 
   const handleDeleteIngredient = async (productId: number) => {
     try {
-      await axios.delete(`http://localhost:5000/recette_ingredient/${id}`, {
+      await axios.delete(`${process.env.REACT_APP_API_URL}recette_ingredient/${id}`, {
         data: { productId },
       });
 
@@ -100,7 +100,7 @@ const RecetteDetail: React.FC = () => {
     
     if (isConfirmed) {
       try {
-        await axios.delete(`http://localhost:5000/recette/${id}`);
+        await axios.delete(`${process.env.REACT_APP_API_URL}recette/${id}`);
         alert('Recette supprimée avec succès !');
         window.location.href = '/recettes'; 
       } catch (err) {
@@ -112,7 +112,7 @@ const RecetteDetail: React.FC = () => {
 
   const handleRecipeUpdated = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/recette/${id}`);
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}recette/${id}`);
       setRecette(response.data);
     } catch (err) {
       console.error('Erreur lors de la récupération des détails de la recette mise à jour.', err);

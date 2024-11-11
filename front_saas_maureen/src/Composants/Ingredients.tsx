@@ -12,7 +12,7 @@ const IngredientsList: React.FC = () => {
   useEffect(() => {
     const fetchIngredients = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/ingredient');
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}ingredient`);
         setIngredients(response.data);
       } catch (err) {
         setError('Erreur lors de la récupération des ingrédients.');
@@ -26,7 +26,7 @@ const IngredientsList: React.FC = () => {
 
   const handleIngredientAdded = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/ingredient');
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}ingredient`);
       setIngredients(response.data);
     } catch (err) {
       console.error('Erreur lors de la récupération des ingrédients.', err);
