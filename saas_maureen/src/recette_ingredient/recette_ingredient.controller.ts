@@ -1,12 +1,12 @@
 import { Body, Controller, Delete, NotFoundException, Param, Post } from "@nestjs/common";
 import { Recette_IngredientService } from "./recette_ingredient.service";
 import { CreateRecette_IngredientDto } from "./recette_ingredient.dto";
-import { RecetteService } from "src/recettes/recettes.service";
+import { RecetteService } from "../recettes/recettes.service";
 
 @Controller('recette_ingredient')
 export class Recette_IngredientController {
   constructor(private readonly Recette_IngredientService: Recette_IngredientService,
-              private readonly RecetteService : RecetteService
+              private readonly RecetteService : RecetteService,
    ) {}
 
    @Post(':recetteId')
