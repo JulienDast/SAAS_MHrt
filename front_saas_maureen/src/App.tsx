@@ -16,7 +16,7 @@ const App: React.FC = () => {
         <Link to="/recettes" className="bg-blue-500 hover:bg-blue-600 active:bg-blue-700 font-mono text-center text-xl md:text-3xl text-white p-2 rounded h-20 w-72 mr-8 flex items-center justify-center">
           Les recettes
         </Link>        
-        <Link to="/ingredients" className="bg-rose-500 hover:bg-rose-600 active:bg-rose-700 font-mono text-center text-xl md:text-3xl text-white p-2 rounded h-20 w-72 mr-8 flex items-center justify-center">
+        <Link to="/ingredients" className="bg-rose-500 hover:bg-rose-600 active:bg-rose-700 font-mono text-center text-xl md:text-3xl text-white p-2 rounded h-20 w-72 ml-8 flex items-center justify-center">
           Les ingrédients
         </Link>        
       </div>
